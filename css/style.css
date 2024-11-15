@@ -578,7 +578,7 @@ body{
 
 /* wines section*/
 .cards {
-    grid-column: 2 / span 12;
+    grid-column: 2 / span 16;
     display: grid;
     grid-template-columns: repeat(16, minmax(auto, 60px));
     grid-gap: 40px;

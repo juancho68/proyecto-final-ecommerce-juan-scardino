@@ -580,7 +580,7 @@ body{
 .cards {
     grid-column: 2 / span 12;
     display: grid;
-    grid-template-columns: repeat(16, minmax(auto, 60px));
+    grid-template-columns: repeat(16, minmax(auto, 80px));
     grid-gap: 40px;
   }
   

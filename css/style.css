@@ -580,7 +580,7 @@ body{
 .cards {
     grid-column: 2 / span 12;
     display: grid;
-    grid-template-columns: repeat(12, minmax(auto, 60px));
+    grid-template-columns: repeat(16, minmax(auto, 60px));
     grid-gap: 40px;
   }
   
@@ -928,14 +928,14 @@ body{
 
 
     .footer-up{
-        height: 40vh;
+        height: 55vh;
     }
 
     .footer-up .footer-up-content{
         text-align: center;
         position: absolute;
         top: 22%;
-        left: 18%;
+        left: 24%;
     }
 
     .footer-up .footer-up-content h3{

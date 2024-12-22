@@ -22,7 +22,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About us</a></li>
-                <li><a href="wines.html">Wines</a></li>
+                <li><a href="cart.html">Store</a></li>
                 <li><a href="contact.html">Contact us</a></li>
             </ul>
         </div>
@@ -33,24 +33,25 @@
   action="https://formspree.io/f/mrbgkdqw"
   method="POST"
 >
-    <div class="container-contact">
+    
+<div class="container-contact">
 
         <h2 text-align: center;>Contáctenos</h2><br>
      
         <label for="txtNombre"><b>Nombre</b></label>
-        <input type="text" placeholder="Ingrese Nombre" name="txtNombre" id="txtNombre" required>
+        <input type="text" placeholder="Ingrese Nombre" name="txtNombre" id="txtNombre">
 
         <label for="txtApellido"><b>Apellido</b></label>
-        <input type="text" placeholder="Ingrese Apellido" name="txtApellido" id="txtApellido" required>
+        <input type="text" placeholder="Ingrese Apellido" name="txtApellido" id="txtApellido">
 
         <label for="txtEmail"><b>Email</b></label>
-        <input type="email" placeholder="Ingrese Email" name="txtEmail" id="txtEmail" required>
+        <input type="email" placeholder="Ingrese Email" name="txtEmail" id="txtEmail">
 
         <label for="txtTelefono"><b>Teléfono</b></label>
-        <input type="text" placeholder="Ingrese Telefono" name="txtTelefono" id="txtTelefono" required>
+        <input type="text" placeholder="Ingrese Telefono" name="txtTelefono" id="txtTelefono">
 
         <label for="txtMessage"><b>Contanos tu inquietud:</b>
-            <textarea placeholder="Ingrese algo..." name="message" required></textarea>
+            <textarea placeholder="Ingrese algo..." name="message"></textarea>
         </label>
 
         <button type="submit" class="registerbtn">Enviar</button>
@@ -78,10 +79,11 @@
                     <div class="item two">
                         <h4>Páginas</h4>
                         <ul>
-                            <li><a href="about.html"><span>Acerca de</span></a></li>
-                            <li><a href="contact.html"><span>Contáctenos</span></a></li>
+
                             <li><a href="index.html"><span>Inicio</span></a></li>
-                            <li><a href="wines.html"><span>Wines</span></a></li>
+                            <li><a href="about.html"><span>Acerca de</span></a></li>
+                            <li><a href="cart.html"><span>Store</span></a></li>
+                            <li><a href="contact.html"><span>Contáctenos</span></a></li>
                         </ul>
                     </div>
 
@@ -126,6 +128,6 @@
             </div>
         </div>
     </div>
-
+    <script src="./js/script.js"></script>
 </body>
 </html>

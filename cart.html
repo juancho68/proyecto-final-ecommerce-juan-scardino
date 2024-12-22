@@ -7,31 +7,13 @@
     <title>Dionisio Wines</title>
     <link rel="shortcut icon" href="./img/grapes.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/all.min.css">
-    
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
 </head>
 <body>
-
-    <div class="options">
-        <ul>
-            <li>
-                <a href="#"> 
-                    <i class="fa-solid fa-cog fa-spin"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#"> 
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-   
     <div class="nav-up">
         <a href=""> <img src="./img/dionisio.png"></a>
     </div>
-
     <div class="navbar">
         <div class="nav-down">
             <ul>
@@ -42,57 +24,26 @@
             </ul>
         </div>
     </div>
-
-
-    <div class="about-section">
-        <h1>Acerca de nosotros</h1>
-        <p>Somos un gran grupo que nos encanta lo que hacemos.</p>
-        <p>Y nos une la pasión por el vino, su procedencia, historia, procesos...</p>
-        <p>Nos encanta poder transmitir nuestras experiencias y que nuestros clientes queden satisfechos</p>
-        
+  <main>
+      <div class="news">
+          <div class="container">
+              <div class="news-content">
+                  <h3>Tienda</h3>
+                  <p>Aquí encontrará la mejor selección de vinos!</p>
+                  <br>
+                  <div class="cart-icon" onclick="openCart()">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Carrito">
+                    <span id="cart-count" class="cart-count">0</span>
+                  </div>
+                  </div>
+                <div class="item">
+                        <div id="product-list" class="product-grid"></div>
+                </div>
+              </div>
+          </div>
       </div>
-      
-      <h2 style="text-align:center">Nosotros</h2>
-      <div class="row">
-        <div class="column">
-          <div class="card-about">
-            <img src="./img/mujer1.jpg" alt="Jane" style="width:100%">
-            <div class="container-about">
-              <h2>Jane Doe</h2>
-              <p class="title">CEO & Founder</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>jane@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="column">
-          <div class="card-about">
-            <img src="./img/hombre2.jpg" alt="Mike" style="width:100%">
-            <div class="container-about">
-              <h2>Mike Ross</h2>
-              <p class="title">Art Director</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>mike@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-      
-        <div class="column">
-          <div class="card-about">
-            <img src="./img/hombre1.jpg" alt="John" style="width:100%">
-            <div class="container-about">
-              <h2>John Doe</h2>
-              <p class="title">Designer</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>john@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-      </div> 
+  </main>
+
 
      <div class="footer">
         <div class="footer-up">
@@ -115,6 +66,7 @@
                     <div class="item two">
                         <h4>Páginas</h4>
                         <ul>
+
                             <li><a href="index.html"><span>Inicio</span></a></li>
                             <li><a href="about.html"><span>Acerca de</span></a></li>
                             <li><a href="cart.html"><span>Store</span></a></li>
@@ -164,5 +116,32 @@
         </div>
     </div>
 
+  <!-- Modal de detalle de producto -->
+  <div id="product-detail-modal" class="modal">
+    <div class="modal-content">
+      
+      <div id="product-detail-content"></div>
+      <button class="close-detail" onclick="closeProductDetail()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal para el carrito -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <h2>Carrito de Compras</h2>
+      <table>
+        <thead>
+        </thead>
+        <tbody id="cart-items"></tbody>
+      </table>
+      <div class="modal-footer">
+        <h3 id="cart-total">Total: $0</h3>
+        <button onclick="processPurchase()">Procesar Compra</button>
+        <button class="modal-close" onclick="closeCart()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>

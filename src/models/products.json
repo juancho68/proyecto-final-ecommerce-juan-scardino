@@ -3,30 +3,35 @@
     "id": 1,
     "name": "Camiseta Deportiva",
     "price": 150,
-    "categories": ["ropa", "deportes"]
+    "categories": ["ropa", "deportes"],
+    "stock": 150
   },
   {
     "id": 2,
     "name": "Zapatos Running",
     "price": 1200,
-    "categories": ["calzado", "deportes"]
+    "categories": ["calzado", "deportes"],
+    "stock": 150
   },
   {
     "id": 3,
     "name": "Mochila Escolar",
     "price": 350,
-    "categories": ["mochilas", "escolar"]
+    "categories": ["mochilas", "escolar"],
+    "stock": 150
   },
   {
     "id": 4,
     "name": "Auriculares Bluetooth",
     "price": 800,
-    "categories": ["tecnología", "audio"]
+    "categories": ["tecnología", "audio"],
+    "stock": 150
   },
   {
     "id": 5,
     "name": "Botella Térmica",
     "price": 220,
-    "categories": ["hogar", "accesorios"]
+    "categories": ["hogar", "accesorios"],
+    "stock": 150
   }
 ]

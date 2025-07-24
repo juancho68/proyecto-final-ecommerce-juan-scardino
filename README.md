@@ -2,7 +2,7 @@
 
 ## Descripción
 
-API REST para gestión de productos desarrollada con Node.js y Express.
+API REST para gestión de productos de Dionisio Wine Store desarrollada con Node.js y Express.
 
 ## Instalación
 
@@ -30,102 +30,176 @@ npm run dev
 
 ## Documentación de la API
 
+### Generación de un token de autorización
+
+- **POST** `/login`
+- **Descripción:** Devuelve un token para poder operar con rutas que implican modificación de la base de datos. Tales como agregar, modificar o borrar productos.
+- **Uso del token:** Copiar el token que devuelve esta ruta SIN LAS COMILLAS, y agregarlo como el valor de un Bearer token en la ruta correspondiente. 
+- **Respuesta ejemplo:**
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzUzMzk3OTE3LCJleHAiOjE3NTM0MDE1MTd9._2XzELykhoCeL4HlDXiUdDr31jS3ucQkpVMWKtYnsLA"
+}
+```
+
 ### Obtener todos los productos
 
 - **GET** `/products`
-- **Descripción:** Devuelve la lista de todos los productos.
+- **Descripción:** Devuelve la lista de todos los productos. No requiere autorización.
 - **Respuesta ejemplo:**
 
 ```json
 [
-  { "id": 1, "name": "Camiseta Deportiva", "price": 150 },
-  { "id": 2, "name": "Zapatos Running", "price": 1200 },
-  { "id": 3, "name": "Mochila Escolar", "price": 350 }
+    {
+        "id": "8drW2I4n6pKwVilH2uSo",
+        "price": 6500,
+        "categories": "Malbec",
+        "stock": 10,
+        "name": "Uxmal"
+    },
+    {
+        "id": "9fAwkkThHfXwhLDjJ8D4",
+        "price": 16000,
+        "categories": "Malbec",
+        "name": "Rutini",
+        "stock": 30
+    },
+    {
+        "id": "YGbGtkeepWyThhXMhQFO",
+        "name": "Las Perdices",
+        "price": 7000,
+        "stock": 10,
+        "categories": "Malbec"
+    },
 ]
 ```
 
-### Buscar productos por nombre
+### Buscar productos por nombre (en desarrollo). 
 
 - **GET** `/products/search?name=palabra`
-- **Descripción:** Devuelve los productos cuyo nombre contiene la palabra indicada.
+- **Descripción:** Devuelve los productos cuyo nombre contiene la palabra indicada. No requiere autorización.
 - **Parámetros:**
   - `name` (query, requerido): texto a buscar en el nombre del producto.
-- **Ejemplo de uso:** `/products/search?name=camiseta`
+- **Ejemplo de uso:** `/products/search?name=rutini`
 - **Respuesta ejemplo:**
 
 ```json
-[{ "id": 1, "name": "Camiseta Deportiva", "price": 150 }]
+[    {
+        "id": "9fAwkkThHfXwhLDjJ8D4",
+        "price": 16000,
+        "categories": "Malbec",
+        "name": "Rutini",
+        "stock": 30
+    }
+]
 ```
 
 ### Obtener producto por ID
 
 - **GET** `/products/:id`
-- **Descripción:** Devuelve un producto específico por su ID.
+- **Descripción:** Devuelve un producto específico por su ID. No requiere autorización.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto.
 - **Ejemplo de uso:** `/products/1`
 - **Respuesta ejemplo:**
 
 ```json
-{ "id": 1, "name": "Camiseta Deportiva", "price": 150 }
+    {
+        "id": "8drW2I4n6pKwVilH2uSo",
+        "price": 6500,
+        "categories": "Malbec",
+        "stock": 10,
+        "name": "Uxmal"
+    }
 ```
 
 ### Crear un producto
 
 - **POST** `/products`
-- **Descripción:** Crea un nuevo producto.
+- **Descripción:** Crea un nuevo producto. Requiere token de autorización.
 - **Body (JSON):**
 
 ```json
-{ "name": "Nuevo Producto", "price": 999 }
+    {
+        "price": 6500,
+        "categories": "Malbec",
+        "stock": 10,
+        "name": "Uxmal"
+    }
 ```
 
 - **Respuesta ejemplo:**
 
 ```json
-{ "id": 6, "name": "Nuevo Producto", "price": 999 }
+    {
+        "id": "8drW2I4n6pKwVilH2uSo",
+        "price": 6500,
+        "categories": "Malbec",
+        "stock": 10,
+        "name": "Uxmal"
+    }
 ```
 
 ### Actualizar un producto (PUT)
 
 - **PUT** `/products/:id`
-- **Descripción:** Actualiza completamente un producto existente.
+- **Descripción:** Actualiza completamente un producto existente. Requiere token de autorización.
+- **Validaciones:**
+  - Chequea datos vacíos o inválidos
+  - No admite precio ni stock negativo 
 - **Parámetros:**
   - `id` (path, requerido): ID del producto a actualizar.
 - **Body (JSON):**
 
 ```json
-{ "name": "Producto Actualizado", "price": 500 }
+    {
+        "price": 6500,
+        "categories": "Malbec",
+        "stock": 20,
+        "name": "Uxmal"
+    }
 ```
 
 - **Respuesta ejemplo:**
 
 ```json
-{ "id": 1, "name": "Producto Actualizado", "price": 500 }
+    {
+        "id": "8drW2I4n6pKwVilH2uSo",
+        "price": 6500,
+        "categories": "Malbec",
+        "stock": 20,
+        "name": "Uxmal"
+    }
 ```
 
-### Actualizar parcialmente un producto (PATCH)
+### Actualizar parcialmente un producto (PATCH) (en desarrollo)
 
 - **PATCH** `/products/:id`
-- **Descripción:** Actualiza parcialmente un producto existente.
+- **Descripción:** Actualiza parcialmente un producto existente. Requiere token de autorización.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto a actualizar.
 - **Body (JSON):** Solo los campos que se desean actualizar
 
 ```json
-{ "price": 600 }
+{ "price": 6100 }
 ```
 
 - **Respuesta ejemplo:**
 
 ```json
-{ "id": 1, "name": "Camiseta Deportiva", "price": 600 }
+    {
+        "price": 6100,
+        "categories": "Malbec",
+        "stock": 20,
+        "name": "Uxmal"
+    }
 ```
 
 ### Eliminar un producto
 
 - **DELETE** `/products/:id`
-- **Descripción:** Elimina un producto por su ID.
+- **Descripción:** Elimina un producto por su ID. Requiere token de autorización.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto a eliminar.
 - **Respuesta:** 204 No Content
@@ -142,11 +216,18 @@ npm run dev
 
 ```
 src/
-├── Controllers/
-│   └── products.controller.js
-├── Models/
-│   └── Product.js
-└── Routes/
+├── controllers/
+│   ├── products.controller.js
+│   └── auth.controller.js
+├── models/
+│   ├── data.js
+│   └── products.model.js
+├── middlewares/
+│   └── auth.middleware.js
+├── services/
+│   └── product.service.js
+└── routes/
+    ├── auth.router.js
     └── products.router.js
 ```
 
@@ -155,3 +236,4 @@ src/
 - Node.js
 - Express.js
 - ES6 Modules
+- JWT

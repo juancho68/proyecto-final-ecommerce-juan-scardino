@@ -27,6 +27,8 @@ Luego editar el archivo `.env` con los valores correspondientes para tu entorno.
 ```bash
 npm run dev
 ```
+## Deploy en Vercel
+`proyecto-final-ecommerce-juan-scard.vercel.app`
 
 ## Documentación de la API
 
@@ -45,7 +47,7 @@ npm run dev
 
 ### Obtener todos los productos
 
-- **GET** `/products`
+- **GET** `/api/products`
 - **Descripción:** Devuelve la lista de todos los productos. No requiere autorización.
 - **Respuesta ejemplo:**
 
@@ -77,7 +79,7 @@ npm run dev
 
 ### Buscar productos por nombre (en desarrollo). 
 
-- **GET** `/products/search?name=palabra`
+- **GET** `/api/products/search?name=palabra`
 - **Descripción:** Devuelve los productos cuyo nombre contiene la palabra indicada. No requiere autorización.
 - **Parámetros:**
   - `name` (query, requerido): texto a buscar en el nombre del producto.
@@ -97,11 +99,11 @@ npm run dev
 
 ### Obtener producto por ID
 
-- **GET** `/products/:id`
+- **GET** `/api/products/:id`
 - **Descripción:** Devuelve un producto específico por su ID. No requiere autorización.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto.
-- **Ejemplo de uso:** `/products/1`
+- **Ejemplo de uso:** `/products/8drW2I4n6pKwVilH2uSo`
 - **Respuesta ejemplo:**
 
 ```json
@@ -116,7 +118,7 @@ npm run dev
 
 ### Crear un producto
 
-- **POST** `/products`
+- **POST** `/api/products`
 - **Descripción:** Crea un nuevo producto. Requiere token de autorización.
 - **Body (JSON):**
 
@@ -143,7 +145,7 @@ npm run dev
 
 ### Actualizar un producto (PUT)
 
-- **PUT** `/products/:id`
+- **PUT** `/api/products/:id`
 - **Descripción:** Actualiza completamente un producto existente. Requiere token de autorización.
 - **Validaciones:**
   - Chequea datos vacíos o inválidos
@@ -175,7 +177,7 @@ npm run dev
 
 ### Actualizar parcialmente un producto (PATCH) (en desarrollo)
 
-- **PATCH** `/products/:id`
+- **PATCH** `/api/products/:id`
 - **Descripción:** Actualiza parcialmente un producto existente. Requiere token de autorización.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto a actualizar.
@@ -198,7 +200,7 @@ npm run dev
 
 ### Eliminar un producto
 
-- **DELETE** `/products/:id`
+- **DELETE** `/api/products/:id`
 - **Descripción:** Elimina un producto por su ID. Requiere token de autorización.
 - **Parámetros:**
   - `id` (path, requerido): ID del producto a eliminar.
